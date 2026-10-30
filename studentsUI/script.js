@@ -2,6 +2,7 @@ const form = document.getElementById("addStudentForm");
 const studentsContainer = document.getElementById("studentsContainer");
 const searchStudents = document.getElementById("searchStudents");
 const success = document.getElementById("success");
+const API = "https://student-management-system-l0o6.onrender.com";
 
 // Search Students
 if (searchStudents) {
@@ -24,7 +25,7 @@ if (form) {
     const age = document.getElementById("age").value;
     const score = document.getElementById("score").value;
 
-    const response = await fetch("/students", {
+    const response = await fetch(`${API}/students`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +53,7 @@ if (form) {
 async function getStudents() {
   if (!studentsContainer) return;
 
-  const response = await fetch("/students");
+  const response = await fetch(`${API}/students`);
 
   const data = await response.json();
 
@@ -96,7 +97,7 @@ async function getStudents() {
       div.querySelector(".cancelBtn").addEventListener("click", getStudents);
 
       div.querySelector(".saveBtn").addEventListener("click", async () => {
-        const response = await fetch(`/students/${student._id}`, {
+        const response = await fetch(`${API}/students/${student._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -115,7 +116,7 @@ async function getStudents() {
     const deleteBtn = div.querySelector(".deleteBtn");
     deleteBtn.addEventListener("click", async () => {
       console.log("clicked");
-      const response = await fetch(`/students/${student._id}`, {
+      const response = await fetch(`${API}/students/${student._id}`, {
         method: "DELETE",
       });
       if (response.ok) div.remove();
