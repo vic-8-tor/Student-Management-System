@@ -1,22 +1,22 @@
 const PORT = 3000;
-require('dotenv').config();
-const mongoose = require('mongoose');
-const express = require('express');
+require("dotenv").config();
+const mongoose = require("mongoose");
+const express = require("express");
 const path = require("path");
 const app = express();
 app.use(express.json());
 
 // Serve FrontEnd
-app.use(express.static(path.join(__dirname, 'studentsUI')));
+app.use(express.static(path.join(__dirname, "studentsUI")));
 
-const studentRoute = require('./routes/studentRoute');
-app.use('/students', studentRoute);
+const studentRoute = require("./routes/studentRoute");
+app.use("/students", studentRoute);
 
-const userRoutes = require('./routes/userRoutes');
-app.use('/users', userRoutes);
+const userRoutes = require("./routes/userRoutes");
+app.use("/users", userRoutes);
 
-const postRoutes = require('./routes/postRoutes');
-app.use('/api', postRoutes);
+const postRoutes = require("./routes/postRoutes");
+app.use("/api", postRoutes);
 
 const connectDB = async () => {
   try {
@@ -26,7 +26,7 @@ const connectDB = async () => {
     console.log(err.message);
   }
 };
-connectDB()
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

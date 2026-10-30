@@ -10,7 +10,9 @@ if (searchStudents) {
     const text = searchStudents.value.toLowerCase();
 
     document.querySelectorAll(".student").forEach((studentDiv) => {
-      studentDiv.style.display = studentDiv.dataset.search.includes(text) ? "" : "none";
+      studentDiv.style.display = studentDiv.dataset.search.includes(text)
+        ? ""
+        : "none";
     });
   });
 }
