@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <input
+        type="search"
+        name="search"
+        id="searchStudents"
+        placeholder="Search ..."
+      />
+
+      <div>
+        <a href="index.html">Home</a>
+        <a href="add.html">Add</a>
+      </div>
+    </nav>
+
+    <!-- Add Students -->
+    <form id="addStudentForm">
+      <h1>Add Student</h1>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Enter your fullname"
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+      <input
+        type="text"
+        name="course"
+        id="course"
+        placeholder="Enter your course"
+      />
+
+      <div>
+        <input
+          class="age"
+          type="number"
+          name="age"
+          min="16"
+          max="40"
+          id="age"
+          placeholder="Age"
+        />
+
+        <input
+          class="score"
+          type="number"
+          name="score"
+          min="0"
+          max="100"
+          id="score"
+          placeholder="Score"
+        />
+      </div>
+
+      <button id="addBtn">Enter</button>
+      <div class="successDiv">
+        <p id="success">Added Successfully</p>
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
